@@ -45,8 +45,8 @@ class BlogsController < ApplicationController
       else
         format.html { render :edit }
       end
-      end
-    end 
+    end
+  end 
   # DELETE /blogs/1
   # DELETE /blogs/1.json
   def destroy
