@@ -65,6 +65,5 @@ def portfolio_params
                                     :body, 
                                     technologies_attributes: [:name]
                                     )
-  end
-  
+end
 end
