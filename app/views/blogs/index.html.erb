@@ -13,22 +13,10 @@
   </thead>
 
   <tbody>
-<<<<<<< HEAD
     <%= render @blogs %>
-=======
-    <% @blogs.each do |blog| %>
-      <tr>
-        <td><%= blog.title.upcase %></td>
-        <td><%= blog.body %></td>
-        <td><%= link_to 'Show', blog %></td>
-        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-        <td><%= link_to 'Delete', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
->>>>>>> f27e2ab887f2cec185dd3b5738af6e4ea0e7557b
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Blog', new_blog_path %>
+<%= link_to 'New Blog', new_blog_path if logged_in?(:admin, :customer, :etc) %>
