@@ -198,7 +198,7 @@ DEPENDENCIES
   bootstrap (~> 4.0.0.alpha6)
   byebug
   coffee-rails (~> 4.2)
-  devise (~> 4.2)
+  devise (~> 4.3)
   friendly_id (~> 5.1.0)
   jbuilder (~> 2.5)
   jquery-rails
