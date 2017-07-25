@@ -20,7 +20,7 @@ module DevcampPortfolio
   class Application < Rails::Application
    config.action_controller.
     permit_all_parameters = true
-    config.load_defaults 5.1
+    #config.load_defaults 5.1
     
     config.generators.system_tests = nil
   end
