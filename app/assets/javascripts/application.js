@@ -13,10 +13,7 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
-<<<<<<< Updated upstream
 //= require jquery-ui
 //= require html.sortable
-=======
->>>>>>> Stashed changes
 //= require turbolinks
 //= require_tree .
