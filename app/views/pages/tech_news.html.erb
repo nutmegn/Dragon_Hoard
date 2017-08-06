@@ -1,0 +1,15 @@
+<div class="inner cover">
+  <h1 class="cover-heading">Current Natalie News</h1>
+    
+    <div class="row" >
+      <% @twitter.each do |tweet| %>
+        <div class="col-md-6">
+          <div class= "tech-news">
+            <div class="card">
+              <%= tweet %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+</div>
