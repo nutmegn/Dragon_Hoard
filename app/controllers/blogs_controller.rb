@@ -9,7 +9,7 @@ class BlogsController < ApplicationController
     if logged_in?(:site_admin)
       @blogs = Blog.recent.page(params[:page]).per(5)
     else
-      @blogs = Blog.published.recent.page(params[:page]).per(5)      
+      @blogs = Blog.published.recent.page(params[:page]).per(5)
     end
     @page_title = "My Portfolio Blog"
   end
@@ -17,11 +17,15 @@ class BlogsController < ApplicationController
   # GET /blogs/1
   # GET /blogs/1.json
   def show
-    @blog = Blog.includes(:comments).friendly.find(params[:id])
-    @comment = Comment.new 
-    
-    @page_title = @blog.title
-    @seo_keywords = @blog.body
+    if logged_in?(:site_admin) || @blog.published?
+      @blog = Blog.includes(:comments).friendly.find(params[:id])
+      @comment = Comment.new
+
+      @page_title = @blog.title
+      @seo_keywords = @blog.body
+    else
+      redirect_to blogs_path, notice: "You are not authorized to access this page"
+    end
   end
 
   # GET /blogs/new
@@ -32,7 +36,7 @@ class BlogsController < ApplicationController
   # GET /blogs/1/edit
   def edit
   end
-  
+
   # POST /blogs
   # POST /blogs.json
   def create
@@ -64,20 +68,21 @@ class BlogsController < ApplicationController
   def destroy
     @blog.destroy
     respond_to do |format|
-      format.html { redirect_to blogs_url, notice: 'Post has been deleted.' }
+      format.html { redirect_to blogs_url, notice: 'Post was removed.' }
+      format.json { head :no_content }
     end
   end
-  
-def toggle_status
+
+  def toggle_status
     if @blog.draft?
       @blog.published!
     elsif @blog.published?
       @blog.draft!
     end
-
+        
     redirect_to blogs_url, notice: 'Post status has been updated.'
-end
-  
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_blog
