@@ -1,11 +1,14 @@
 @import "bootstrap";
 @import "gritter";
-
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
 /*
  * Globals
  */
 
 /* Links */
+*{
+  font-family: 'Ubuntu', sans-serif;
+}
 a,
 a:focus,
 a:hover {
@@ -26,6 +29,7 @@ a:hover {
 /*
  * Base structure
  */
+
 
 html,
 body {
@@ -246,4 +250,8 @@ body {
 .skill {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.about-me-card {
+  margin-top: 120px;
 }
