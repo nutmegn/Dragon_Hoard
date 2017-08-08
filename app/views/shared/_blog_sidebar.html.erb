@@ -1,14 +1,21 @@
-        <div class="col-sm-3 offset-sm-1 blog-sidebar">
-          <div class="sidebar-module sidebar-module-inset">
-            <h4>About</h4>
-            <p>Welcome to the blog of a brand new developer as well as senior artist and author! Here, I'll post updates about my current projects , as well as any other important information. </p>
-          </div>
+<div class="col-sm-3 offset-sm-1 blog-sidebar">
+  <div class="sidebar-module sidebar-module-inset">
+    <h4>About</h4>
+    <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+  </div>
+  
+  <div class="sidebar-module">
+  <h4>Topics</h4>  
+   <% @side_bar_topics.each do |topic| %>
+      <p><%=link_to topic.title, topic_path(topic) %></p>
+   <% end %>
+  </div>  
 
-          <div class="sidebar-module">
-            <h4>Elsewhere</h4>
-            <ol class="list-unstyled social-links">
-              <li><a href="#"> <%= fa_icon "github" %> </a></li>
-              <!-- FOR LATER <li><a href="#"> <%= fa_icon "twitter" %> </a></li> -->
-            </ol>
-          </div>
-        </div>
+  <div class="sidebar-module">
+    <h4>Elsewhere</h4>
+    <ol class="list-unstyled social-links">
+      <li><a href="#"><%= fa_icon "github" %></a></li>
+      <li><a href="#"><%= fa_icon "twitter" %></a></li>
+    </ol>
+  </div>
+</div>
